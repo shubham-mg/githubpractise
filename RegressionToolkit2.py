@@ -44,7 +44,7 @@ def setStationarity(var):
         for tf in transforms:
             var_transformed = RegressionToolkit(var).Transform(tf)
             result = adfuller(var_transformed)
-            if result[1] < 0.05:
+            if result[1] < 0.05/100:
                 statn_var.append(var_transformed)
                 tfm.append(tf)
                 break  # Assuming we stop at the first stationary transformation found
